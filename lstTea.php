@@ -174,7 +174,10 @@ session_start();
                 require_once "./app/Classes/Food.php";
                 require_once "./app/Interface/IPromotion.php";
                 require_once "./app/Classes/Promotion.php";
+                require_once "./app/Interface/IImage.php";
+                require_once "./app/Classes/Image.php";
                 $food = new Food();
+                $image = new Image();
                 $foods = $food->getByMenu($_GET["menu_id"]);    
                 $numoffood = count($foods);   
                 $numfoodinPage= 4;
@@ -191,6 +194,7 @@ session_start();
                   $food = $foods[$i];
                 $promotion = new Promotion();
                 $km= $promotion->getPromotionById($food["promotion_id"]);
+                $imageFood = $image->getById($food["food_id"])[0];
                   echo '
                   <div class="col-sm-6 col-md-3 mb-3">
                   <div class="oh-desktop">
@@ -198,7 +202,7 @@ session_start();
                     <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
-                          <div class="product-figure"><img src="images/product-5-270x280.png" alt="" width="270" height="280"/>
+                          <div class="product-figure"><img src="images/'.$imageFood["image_url"].'" alt="" width="270" height="280"/>
                             <div class="product-button"><a class="button button-md button-white button-ujarak" href="./app/Controller/Cart.php?id='.$_GET["id"].'&food_id='.$food["food_id"].'&create=true">Add to cart</a></div>
                           </div>
                         </div>
@@ -219,7 +223,7 @@ session_start();
                           }
                     echo'             
                           </div><a class="button button-sm button-secondary button-ujarak" href="./app/Controller/Cart.php?id='.$_GET["id"].'&food_id='.$food["food_id"].'&create=true">Add to cart</a>
-                          <div class="oh button-wrap"><a class="button button-primary button-ujarak" href="#ImageMA" data-caption-animate="slideInLeft" data-caption-delay="400">Xem ảnh</a></div>
+                          <div class="oh button-wrap"><a class="button button-primary button-ujarak" href="index.php?id='.$_GET["id"].'#ImageMA" data-caption-animate="slideInLeft" data-caption-delay="400">Xem ảnh</a></div>
 
                         </div>
                       </div>

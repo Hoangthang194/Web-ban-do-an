@@ -11,10 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $searchTerm = strtolower(trim($searchTerm));
         $food= new Food();
         $foodAll = $food->getAll();
+        if(!$foodAll){
+            header("Location: ../../index.php?id=$userId");
+        }
         foreach($foodAll as $item){
             $stringFood = strtolower(trim($item["food_name"]));
             if($stringFood == $searchTerm){
-                header("Location: ../../index.php?id=$userId&food_id=" . $item["food_id"]);
+                header("Location: ../../index.php?id=$userId#". $item["food_id"]);
             }
         }
     } else {

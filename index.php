@@ -153,21 +153,23 @@ if (!isset($_SESSION['user_name'])) {
                     <!-- RD Navbar Search-->
                     <div class="rd-navbar-search">
                       <button class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
-                      <form class="rd-search" action="#">
+                      <form class="rd-search" action="./app/Controller/Search.php" method="post">
                         <div class="form-wrap">
                           <label class="form-label" for="rd-navbar-search-form-input">Search...</label>
                           <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="search">
                           <input class="rd-navbar-search-form-input form-input" id="user_id" type="text" name="id" style="display: none;">
-                          <?php
-                          echo '
-                          <script>
-                            document.getElementById("user_id").value = "'.$_SESSION["user_id"].'"
-                          </script>
-                          '
-                           ?>
+                          
                           <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
                         </div>
                       </form>
+                      <?php
+
+                          echo '
+                          <script>
+                            document.getElementById("user_id").value = "'.$_GET["id"].'"
+                          </script>
+                          '
+                           ?>
                     </div>
                     <!-- RD Navbar Nav-->
                     <ul class="rd-navbar-nav">

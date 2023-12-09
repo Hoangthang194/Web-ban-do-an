@@ -59,6 +59,8 @@
                     require_once "./app/Classes/Cart.php";
                     require_once "./app/Interface/IFood.php";
                     require_once "./app/Classes/Food.php";
+                    require_once "./app/Interface/IImage.php";
+                    require_once "./app/Classes/Image.php";
                     $cart = new Cart();
                     $cart_id= $cart->getCartByID($_GET["id"])[0]["cart_id"];
                     $cartDetails = new CartDetails();
