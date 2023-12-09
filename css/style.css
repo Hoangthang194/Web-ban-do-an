@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /*
 * Trunk version 2.0.0
@@ -6,6 +7,9 @@
 *
 * Contexts
 */
+body{
+	scroll-behavior: smooth;	
+}
 a:focus,
 button:focus {
 	outline: none !important;
@@ -7628,6 +7632,8 @@ html.tablet .ui-to-top {
 }
 
 .cart-inline-body {
+	height: 400px;
+	overflow: scroll;
 	padding: 20px;
 	border-top: 1px solid #f1efeb;
 }
