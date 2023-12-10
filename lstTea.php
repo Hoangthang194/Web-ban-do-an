@@ -223,7 +223,7 @@ session_start();
                           }
                     echo'             
                           </div><a class="button button-sm button-secondary button-ujarak" href="./app/Controller/Cart.php?id='.$_GET["id"].'&food_id='.$food["food_id"].'&create=true">Add to cart</a>
-                          <div class="oh button-wrap"><a class="button button-primary button-ujarak" href="index.php?id='.$_GET["id"].'#ImageMA" data-caption-animate="slideInLeft" data-caption-delay="400">Xem ảnh</a></div>
+                          <div class="oh button-wrap"><a class="button button-primary button-ujarak" href="index.php?id='.$_GET["id"].'#imageMA" data-caption-animate="slideInLeft" data-caption-delay="400">Xem ảnh</a></div>
 
                         </div>
                       </div>

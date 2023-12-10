@@ -107,14 +107,17 @@ if (!isset($_SESSION['user_name'])) {
                         <div class="cart-inline-body">
                           
                           <?php
-                          
+                          require_once "./app/Interface/IImage.php";
+                          require_once "./app/Classes/Image.php";
+                                $image = new Image();
                               foreach($cartlst as $item){
                                 $food_id = $item["food_id"];
                                 $foodFind = $food->getById($food_id)[0];
+                                $imageFood = $image->getById($foodFind["food_id"])[0];
                                 echo '
                               <div class="cart-inline-item">
                             <div class="unit align-items-center">
-                              <div class="unit-left"><a class="cart-inline-figure" href="#"><img src="images/product-mini-2-108x100.png" alt="" width="108" height="100"/></a></div>
+                              <div class="unit-left"><a class="cart-inline-figure" href="#"><img src="images/'.$imageFood["image_url"].'" alt="" style="width: 108px;, height:100px;"/></a></div>
                               <div class="unit-body">
                                 <h6 class="cart-inline-name"><a href="#">'.$foodFind["food_name"].'</a></h6>
                                 <div>
@@ -391,7 +394,7 @@ if (!isset($_SESSION['user_name'])) {
                 $km= $promotion->getPromotionById($food["promotion_id"]);
                 $imageFood = $image->getById($food["food_id"])[0];
                   echo '
-                  <div class="col-sm-6 col-md-12 col-lg-6">
+                  <div class="col-sm-6 col-md-12 col-lg-6" id='.$food["food_id"].'>
                   <div class="oh-desktop">
                     <!-- Product-->
                     <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
@@ -457,7 +460,7 @@ if (!isset($_SESSION['user_name'])) {
                 $km= $promotion->getPromotionById($food["promotion_id"]);
                 $imageFood = $image->getById($food["food_id"])[0];
                   echo '
-                  <div class="col-sm-6 col-md-12 col-lg-6">
+                  <div class="col-sm-6 col-md-12 col-lg-6" id="'.$food["food_id"].'">
                   <div class="oh-desktop">
                     <!-- Product-->
                     <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
@@ -732,6 +735,26 @@ generatePagination($totalPages, $currentPage);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+    // Chờ tài liệu được tải xong
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lấy fragment (đoạn #28) từ URL
+        var fragment = window.location.hash;
+      console.log(fragment);
+        // Kiểm tra xem fragment có tồn tại
+        if (fragment) {
+          var id = fragment.substring(1);
+          console.log(id)
+            // Cuộn đến vị trí có id là fragment
+            var element = document.getElementById(`${id}`); 
+            console.log(element);
+            if (element) {
+              console.log("haha");
+                element.scrollIntoView();
+            }
+        }
+    });
+</script>
     <!-- coded by Ragnar-->
   </body>
 </html>
