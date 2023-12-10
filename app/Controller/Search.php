@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     window.location.href = "../../index.php?id=' . $userId . '&notfound=true";
 
                 </script>
-';              break;
+';              
 
             }
         }

@@ -400,7 +400,7 @@ if (!isset($_SESSION['user_name'])) {
                     <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
-                          <div class="product-figure"><img src="images/'.$imageFood["image_url"].'" alt="" width="270" height="280"/>
+                          <div class="product-figure"><img src="images/'.$imageFood["image_url"].'" alt="" style="width:270px; height:266px; background-image:center;"/>
                             <div class="product-button"><a class="button button-md button-white button-ujarak" href="./app/Controller/Cart.php?id='.$_GET["id"].'&food_id='.$food["food_id"].'&create=true">Add to cart</a></div>
                           </div>
                         </div>
@@ -466,7 +466,7 @@ if (!isset($_SESSION['user_name'])) {
                     <article class="product product-2 box-ordered-item wow slideInRight" data-wow-delay="0s">
                       <div class="unit flex-row flex-lg-column">
                         <div class="unit-left">
-                          <div class="product-figure"><img src="images/'.$imageFood["image_url"].'" alt="" width="270" height="280"/>
+                          <div class="product-figure"><img src="images/'.$imageFood["image_url"].'" alt="" style="width:270px; height:266px;"/>
                             <div class="product-button"><a class="button button-md button-white button-ujarak" href="./app/Controller/Cart.php?id='.$_GET["id"].'&food_id='.$food["food_id"].'&create=true">Add to cart</a></div>
                           </div>
                         </div>
@@ -564,7 +564,7 @@ if (!isset($_SESSION['user_name'])) {
                   <div class="oh-desktop">
                     <!-- Thumbnail Classic-->
                     <article class="thumbnail thumbnail-mary thumbnail-sm wow slideInLeft" data-wow-delay="0s">
-                      <div class="thumbnail-mary-figure"><img src="images/'.$imageItem["image_url"].'" alt="" width="370" height="303"/>
+                      <div class="thumbnail-mary-figure"><img src="images/'.$imageItem["image_url"].'" alt="" style="width:370px; height:240px;"/>
                       </div>
                       <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="images/'.$imageItem["image_url"].'" data-lightgallery="item"><img src="images/'.$imageItem["image_url"].'" alt="" width="370" height="303"/></a>
                         <h4 class="thumbnail-mary-title"><a href="#"></a></h4>
