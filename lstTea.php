@@ -312,7 +312,8 @@ session_start();
 
 // Hàm để tạo URL với trang đã chọn
 function getPageUrl($page) {
-    return '?id='.$_SESSION["user_id"].'&page='.$page.'';
+  $id = $_SESSION["user_id"];
+    return '?id='.$id.'&page='.$page.'&menu_id='.$_GET["menu_id"].'';
 }
 
 // Hàm để tạo danh sách nút phân trang

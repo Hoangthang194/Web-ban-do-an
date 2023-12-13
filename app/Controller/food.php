@@ -50,7 +50,8 @@ if(isset($_GET["update"])){
     $promotion_id = $_GET["promotion_id"];
     $price = $_GET["price"];
     $food_id = $_GET["id"];
-    if($promotion_id > 0){
+    $promotion = new Promotion();
+    if($promotion_id != 0){
         $saleoff= $promotion->getPromotionById($promotion_id)[0]["saleoff"];
         $price_new =$price - ($price * $saleoff / 100);
         $food = new Food();
